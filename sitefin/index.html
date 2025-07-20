@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Financeiro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Controle Financeiro</h1>
+
+        <div class="tabs">
+            <button class="tab-button active" data-tab="movimentacoes">Movimentações</button>
+            <button class="tab-button" data-tab="recorrentes">Recorrentes</button>
+        </div>
+
+        <div id="movimentacoes" class="tab-content active">
+            <div class="form-section">
+                <h2>Adicionar Nova Movimentação</h2>
+                <form id="expenseForm">
+                    <label for="data">Data:</label>
+                    <input type="date" id="data" required>
+
+                    <label for="descricao">Descrição:</label>
+                    <input type="text" id="descricao" placeholder="Ex: Almoço ou Salário" required>
+
+                    <label for="tipo">Tipo:</label>
+                    <select id="tipo" required>
+                        <option value="Despesa">Despesa</option>
+                        <option value="Receita">Receita</option>
+                    </select>
+
+                    <label for="valor">Valor:</label>
+                    <input type="number" id="valor" step="0.01" placeholder="Ex: 50.00 ou 1500.00" required>
+
+                    <label for="categoria">Categoria:</label>
+                    <input type="text" id="categoria" placeholder="Ex: Alimentação ou Salário" required>
+
+                    <button type="submit">Adicionar Movimentação</button>
+                </form>
+                <p id="message" class="message"></p>
+            </div>
+
+            <div class="records-section">
+                <h2>Últimas Movimentações</h2>
+                <div class="summary-section">
+                    <p>Total de Receitas do Mês: <span id="monthlyIncome">R$ 0,00</span></p>
+                    <p>Total de Despesas do Mês: <span id="monthlyExpense">R$ 0,00</span></p>
+                    <p>Saldo do Mês: <span id="monthlyBalance">R$ 0,00</span></p>
+                </div>
+                <table id="expenseTable">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Descrição</th>
+                            <th>Tipo</th>
+                            <th>Valor</th>
+                            <th>Categoria</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="recorrentes" class="tab-content">
+            <div class="form-section">
+                <h2>Adicionar Movimentação Recorrente</h2>
+                <form id="recurringExpenseForm">
+                    <label for="recorrente-descricao">Descrição:</label>
+                    <input type="text" id="recorrente-descricao" placeholder="Ex: Aluguel, Salário Mensal" required>
+
+                    <label for="recorrente-tipo">Tipo:</label>
+                    <select id="recorrente-tipo" required>
+                        <option value="Despesa">Despesa</option>
+                        <option value="Receita">Receita</option>
+                    </select>
+
+                    <label for="recorrente-valor">Valor:</label>
+                    <input type="number" id="recorrente-valor" step="0.01" placeholder="Ex: 800.00" required>
+
+                    <label for="recorrente-categoria">Categoria:</label>
+                    <input type="text" id="recorrente-categoria" placeholder="Ex: Moradia, Salário" required>
+
+                    <label for="recorrente-dia">Dia do Mês:</label>
+                    <input type="number" id="recorrente-dia" min="1" max="31" placeholder="Ex: 5" required>
+
+                    <button type="submit">Adicionar Recorrente</button>
+                </form>
+                <p id="recurringMessage" class="message"></p>
+            </div>
+
+            <div class="records-section">
+                <h2>Movimentações Recorrentes</h2>
+                <table id="recurringTable">
+                    <thead>
+                        <tr>
+                            <th>Descrição</th>
+                            <th>Tipo</th>
+                            <th>Valor</th>
+                            <th>Categoria</th>
+                            <th>Dia do Mês</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+                <button id="addRecurrentsToSheet" class="action-button">Adicionar Recorrentes deste Mês</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha no topo */
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px; /* Aumenta um pouco para acomodar as abas */
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos das abas */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+.tab-button {
+    background-color: #f2f2f2;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    transition: background-color 0.3s ease;
+    outline: none; /* Remove outline ao clicar */
+}
+
+.tab-button:hover {
+    background-color: #e0e0e0;
+}
+
+.tab-button.active {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    border-bottom: 2px solid #28a745; /* Linha verde ativa */
+}
+
+.tab-content {
+    display: none; /* Esconde todas as abas por padrão */
+}
+
+.tab-content.active {
+    display: block; /* Mostra a aba ativa */
+}
+
+
+.form-section, .records-section {
+    margin-top: 20px; /* Espaço para as abas */
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold;
+}
+
+form input, form select, form button {
+    width: calc(100% - 20px); /* Ajusta para padding */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Garante que padding não aumente a largura */
+}
+
+form button {
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+
+.message {
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Estilos para o botão de ação (adicionar recorrentes à principal) */
+.action-button {
+    background-color: #007bff; /* Azul */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block; /* Ocupa a largura total */
+    width: calc(100% - 20px);
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para o resumo de receitas/despesas */
+.summary-section {
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.summary-section p {
+    margin: 5px 0;
+}
+
+.summary-section #monthlyBalance {
+    color: #007bff; /* Cor para o saldo */
+}
+
+/* Responsividade básica */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+    form input, form select, form button, .action-button {
+        width: 100%;
+    }
+}
